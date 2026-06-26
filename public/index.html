@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aether Brawl: Nexus Shards</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <div id="lobby-panel">
+            <h1>AETHER BRAWL</h1>
+            <p>Sélectionnez votre Brawler pour entrer dans l'arène :</p>
+            <div class="brawler-selection">
+                <div class="card selected" id="btn-volt" onclick="selectBrawler('volt')">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=60" alt="Volt">
+                    <h3>VOLT</h3>
+                    <p>Sniper • Longue Portée</p>
+                </div>
+                <div class="card" id="btn-vortex" onclick="selectBrawler('vortex')">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=150&auto=format&fit=crop&q=60" alt="Vortex">
+                    <h3>VORTEX</h3>
+                    <p>Gardien • Dégâts de Zone</p>
+                </div>
+            </div>
+        </div>
+        <div id="scoreboard">Éclats requis pour gagner : 5</div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="mobile-controls">
+        <div id="joystick-zone">
+            <div id="joystick-base">
+                <div id="joystick-stick"></div>
+            </div>
+        </div>
+        <div id="action-zone">
+            <button id="btn-shoot">ATTACK</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
