@@ -1,1 +1,202 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
 
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #0d0e15;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#ui-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#lobby-panel {
+    pointer-events: auto;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 2px solid #38bdf8;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 420px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
+
+#lobby-panel h1 {
+    font-size: 24px;
+    color: #38bdf8;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+#lobby-panel p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.brawler-selection {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.card {
+    background: #1e293b;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 45%;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: #64748b;
+}
+
+.card.selected {
+    border-color: #f59e0b;
+    background: #2e3b52;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #f8fafc;
+    margin-bottom: 4px;
+}
+
+.card p {
+    font-size: 11px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+#scoreboard {
+    background: rgba(0, 0, 0, 0.6);
+    color: #f59e0b;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    align-self: center;
+    border: 2px solid #f59e0b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Zone d'affichage responsive pour supports mobiles */
+#mobile-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 20;
+    display: none; /* Activé dynamiquement en JS si mobile détecté */
+}
+
+#joystick-zone {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    width: 130px;
+    height: 130px;
+    pointer-events: auto;
+}
+
+#joystick-base {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#joystick-stick {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+#action-zone {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    pointer-events: auto;
+}
+
+#btn-shoot {
+    width: 90px;
+    height: 90px;
+    background: #ef4444;
+    border: 4px solid #b91c1c;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4);
+    cursor: pointer;
+}
+
+#btn-shoot:active {
+    background: #dc2626;
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: block;
+    }
+    #lobby-panel {
+        max-width: 90%;
+        padding: 10px;
+    }
+    #lobby-panel h1 { font-size: 18px; }
+    .card img { height: 60px; }
+}
